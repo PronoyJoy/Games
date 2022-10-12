@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+
+    <title>Document</title>
+
+
+    <script>
+
+
+        console.log('hello')
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelector('form').onsubmit = function () {
+
+
+                let price = document.querySelector('#amount').value;
+                let base = document.querySelector('#from').value;
+                let convert = document.querySelector('#to').value;
+
+
+                //alert(`${price}`)
+
+                console.log(price)
+
+
+                var myHeaders = new Headers();
+                myHeaders.append("apikey", "IAJbcnqEB6p4nJfdXeNaiMRxrHqi3Zuj");
+
+                var requestOptions = {
+                    method: 'GET',
+                    redirect: 'follow',
+                    headers: myHeaders
+                };
+
+                fetch(`https://api.apilayer.com/fixer/convert?to=${convert}&from=${base}&amount=${price}`, requestOptions)
+                    .then(response => response.json())
+                    .then(
+                    data => {
+
+
+
+                        const val = data.result;
+
+                        console.log(val)
+
+                        document.querySelector('h2').innerHTML = val
+
+                    }
+                    )
+                    .catch(error => console.log('error', error));
+
+                
+
+
+                return false
+
+
+
+
+
+
+            }
+
+
+        })
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div>
+
+        <h1>
+            <center>Currency Converter App</center>
+        </h1>
+
+    </div>
+    
+    <h1>Result : <br> </h1>
+    <h2> </h2>
+
+    <form action="">
+
+        <label for="from"> FROM :</label>
+
+        <input type="text" id="from" placeholder="Wite Code Word Base">
+        <br> <hr>
+
+        <label for="to"> TO :</label>
+        <input type="text" id="to" placeholder="Wite Code Word TO">
+        <br><hr>
+
+        <label for="amount"> Amount :</label>
+        <input type="text" id="amount" placeholder="Amount">
+        <br><hr>
+
+        <input type="submit" value="submit">
+
+
+    </form>
+
+
+
+
+
+
+</body>
+
+</html>
