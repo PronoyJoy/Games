@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+
+            document.querySelector('form').onsubmit = () =>{
+
+                const task = document.querySelector('#task').value;
+
+                const li = document.createElement('li')
+
+                li.innerHTML = task ;
+
+                document.querySelector('#tasks').append(li)
+
+                document.querySelector('#task').value = '';
+
+
+                return false; // stop submitting
+
+
+
+
+
+
+
+
+            }
+
+
+
+ 
+
+
+
+        });
+
+    </script>
+
+    <h1><center> <bold> To Do List </bold> </center></h1>
+    <hr>
+
+    <form action="" id="tasklist">
+
+        <input type="text" id="task" placeholder="add task">
+        <input type="submit" placeholder="add-task">
+
+    </form>
+
+
+    <h2 id="tasks">Task List :<br>
+
+    </h2>
+
+
+    
+</body>
+</html>
