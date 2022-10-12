@@ -4,11 +4,19 @@ const userDisplay = document.getElementById('your')
 
 const resultDisplay = document.getElementById('result')
 
-const choices= document.querySelectorAll('button')
+const choices = document.querySelectorAll('button')
+
+
+
+
+const computermarks = document.getElementById('computermarks')
+
+const yourmarks = document.getElementById('yourmarks')
 
 let userChoice
 let ComputerChoice
 let resultchoice
+
 
 choices.forEach(choices => choices.addEventListener('click',(e)=>{
 
@@ -20,6 +28,8 @@ choices.forEach(choices => choices.addEventListener('click',(e)=>{
 
 
 }))
+
+
 
 function generateComputerChoice(params) {
 
@@ -55,10 +65,10 @@ function getResult(){
     }
 
     if (ComputerChoice === 'rock' &&  userChoice === 'paper'){
-        result = 'You Lose !'
+        result = 'You Win !'
     }
     if (ComputerChoice === 'paper' &&  userChoice === 'rock'){
-        result = 'Win !'
+        result = 'Lose !'
     }
 
     if (ComputerChoice === 'paper' &&  userChoice === 'scissor'){
